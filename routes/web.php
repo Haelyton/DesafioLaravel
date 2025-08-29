@@ -1,7 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TarefaController;
+
+
+Route::get('/hello', function () {
+    return "Olá, Laravel!";
+});
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('tarefas.index');
 });
+
+Route::resource('tarefas', TarefaController::class);
+
